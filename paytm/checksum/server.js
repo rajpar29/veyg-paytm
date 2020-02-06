@@ -128,7 +128,7 @@ http.createServer(function (req, res) {
 
 							var _result = JSON.parse(response);
 							// html += "<b>Status Check Response</b><br>";
-							data = _result["ORDERID"] + 'splitter' + _result["STATUS"] + 'splitter' + _result["TXNID"];
+							let data = _result["ORDERID"] + 'splitter' + _result["STATUS"] + 'splitter' + _result["TXNID"];
 							// let encryptedData =  AES.encrypt(data,"mysecurekey");
 							var hex, i;
 
