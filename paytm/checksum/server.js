@@ -1,3 +1,4 @@
+const AES = require("crypto-js/aes");
 const http = require('http');
 const https = require('https');
 const qs = require('querystring');
@@ -127,7 +128,16 @@ http.createServer(function (req, res) {
 
 							var _result = JSON.parse(response);
 							// html += "<b>Status Check Response</b><br>";
-							res.writeHead(301, { "Location": "http://localhost:4200/order-status/" + _result["ORDERID"] + '/' + _result["STATUS"] + '/' + _result["TXNID"] })
+							data = _result["ORDERID"] + 'splitter' + _result["STATUS"] + 'splitter' + _result["TXNID"];
+							// let encryptedData =  AES.encrypt(data,"mysecurekey");
+							var hex, i;
+
+							var result = "";
+							for (i=0; i< data.length; i++) {
+								hex = data.charCodeAt(i).toString(25);
+								result += ("000"+hex).slice(-4);
+							}
+							res.writeHead(301, { "Location": "http://localhost:4200/order-status/" + result  })
 
 							// res.writeHead(200, {'Content-Type': 'text/html'});
 							// res.write(html);
@@ -146,3 +156,4 @@ http.createServer(function (req, res) {
 
 
 }).listen(port);
+
