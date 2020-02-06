@@ -8,6 +8,7 @@ var crypto = require('crypto');
 
 function paramsToString(params, mandatoryflag) {
   var data = '';
+  console.log(params);
   var tempKeys = Object.keys(params);
   tempKeys.sort();
   tempKeys.forEach(function (key) {

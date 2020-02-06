@@ -27,17 +27,17 @@ module.exports = (app) => {
         })
     })
 
-    app.post("/callback", (req, res) => {
-        console.log("in response post");
-        var paramlist = req.body;
-        var paramarray = new Array();
-        console.log(paramlist);
-        if (checksum_lib.verifychecksum(paramlist, "uBa0d%2zsDycTi2B")) {
-            console.log("true");
-            // res.render('response.ejs', { 'restdata': "true", 'paramlist': paramlist });
-        } else {
-            console.log("false");
-            // res.render('response.ejs', { 'restdata': "false", 'paramlist': paramlist });
-        };
-    })
+    // app.post("/callback", (req, res) => {
+    //     console.log("in response post");
+    //     var paramlist = req.body;
+    //     var paramarray = new Array();
+    //     console.log(paramlist);
+    //     if (checksum_lib.verifychecksum(paramlist, "uBa0d%2zsDycTi2B")) {
+    //         console.log("true");
+    //         // res.render('response.ejs', { 'restdata': "true", 'paramlist': paramlist });
+    //     } else {
+    //         console.log("false");
+    //         // res.render('response.ejs', { 'restdata': "false", 'paramlist': paramlist });
+    //     };
+    // })
 }
